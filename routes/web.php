@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\QuizController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,4 +37,5 @@ Route::group(['middleware' => ['auth', 'İsAdmin']], function () {
 
 Route::group([
     'middleware' => ['auth', 'İsAdmin'],'prefix' => 'admin'], function () {
+        Route::resource('quizzes',QuizController::class);
 });

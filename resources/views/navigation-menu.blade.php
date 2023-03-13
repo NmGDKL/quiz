@@ -91,11 +91,20 @@
                         </x-slot>
 
                         <x-slot name="content">
-                            <!-- Account Management -->
-                            <div class="block px-4 py-2 text-xs text-gray-400">
-                                {{ __('Manage Account') }}
-                            </div>
+                            @if (auth()->user()->type=='admin')
+                                     <div class="block px-4 py-2 text-xs text-gray-400">
+                                        Admin İşlemleri
+                                    </div>
 
+                                    <!-- Team Settings -->
+                                    <x-dropdown-link href="{{ route('quizzes.index') }}">
+                                        Quizler
+                                    </x-dropdown-link>
+                                @endif
+
+                                    <div class="block px-4 py-2 text-xs text-gray-400">
+                                        Manage Account
+                                    </div>
                             <x-dropdown-link href="{{ route('profile.show') }}">
                                 {{ __('Profile') }}
                             </x-dropdown-link>

@@ -37,5 +37,6 @@ Route::group(['middleware' => ['auth', 'İsAdmin']], function () {
 
 Route::group([
     'middleware' => ['auth', 'İsAdmin'],'prefix' => 'admin'], function () {
+        Route::get('quizzes/{id}',[ QuizController::class, 'destroy' ])->whereNumber('id')->name('quizzes.destroy');
         Route::resource('quizzes',QuizController::class);
 });

@@ -33,7 +33,7 @@
     </div>
     <x-slot name="js">
     @section('script')
-        <Script>
+        <script>
             $('#isFinished').change(function(){
                 if($('#isFinished').is(':checked')){
                     $('#finishedInput').show();
@@ -41,7 +41,7 @@
                 $('#finishedInput').hide();
                }
             });
-        </Script>
+        </script>
     @endsection
     </x-slot>
 </x-app-layout>

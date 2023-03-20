@@ -8,7 +8,7 @@ import focus from '@alpinejs/focus';
 import $ from 'jquery'
 
 window.jQuery = $;
-window.$ = $
+window.$ = $ ;
 
 
 window.Alpine = Alpine;

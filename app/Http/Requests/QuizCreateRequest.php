@@ -8,8 +8,10 @@ class QuizCreateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
+     *
+     * @return bool
      */
-    public function authorize(): bool
+    public function authorize()
     {
         return true;
     }
@@ -17,9 +19,9 @@ class QuizCreateRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\Rule|array|string>
+     * @return array
      */
-    public function rules(): array
+    public function rules()
     {
         return [
             'title'=>'required|min:3|max:200',
@@ -30,10 +32,9 @@ class QuizCreateRequest extends FormRequest
 
     public function attributes(){
         return [
-             'title'=>'Quiz Başlığı',
+            'title'=>'Quiz Başlığı',
             'description'=>'Quiz Açıklama',
-            'finished_at'=>'Bitiş Tarihi',
-
+            'finished_at'=>'Bitiş Tarihi'
         ];
     }
 }

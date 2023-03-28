@@ -6,41 +6,36 @@
                 @csrf
                 <div class="form-group">
                     <label>Quiz Başlığı</label>
-                    <input type="text" name="title" class="form-control" value="{{ old('title') }}" >
+                    <input type="text" name="title" class="form-control" value="{{ old('title') }}">
                 </div>
-
                 <div class="form-group">
                     <label>Quiz Açıklama</label>
-                    <textarea type="description" class="form-control" rows="4">{{ old('description') }}</textarea>
+                    <textarea name="description" class="form-control" rows="4">{{ old('description') }}</textarea>
                 </div>
-
                 <div class="form-group">
                     <input id="isFinished" @if(old('finished_at')) checked @endif type="checkbox">
-                    <label>Bitiş Tarihi Olacak mı ?</label>
+                    <label>Bitiş Tarihi Olacak mı?</label>
                 </div>
-
-                <div id="finishedInput" @if(!old('finished_at')) style="display: none" @endif  class="form-group">
+                <div id="finishedInput" @if(!old('finished_at')) style="display:none" @endif class="form-group">
                     <label>Bitiş Tarihi</label>
-                    <input type="datetime-local" name="finished_at" class="form-control" value="{{ old('finished_at') }}">
+                    <input type="datetime-local" name="finished_at" value="{{ old('finished_at') }}" class="form-control">
                 </div>
-
                 <div class="form-group">
-                    <button type="submit" class="btn btn-success btn-sm btn-block ">Quiz Oluştur</button>
+                    <button type="submit" class="btn btn-success btn-sm btn-block">Quiz Oluştur</button>
                 </div>
             </form>
         </div>
     </div>
     <x-slot name="js">
-    @section('script')
         <script>
-            $('#isFinished').change(function(){
-                if($('#isFinished').is(':checked')){
+            $('#isFinished').change(function () {
+                if ($('#isFinished').is(':checked')) {
                     $('#finishedInput').show();
-               }else{
-                $('#finishedInput').hide();
-               }
-            });
+                } else {
+                    $('#finishedInput').hide();
+                }
+            })
+
         </script>
-    @endsection
     </x-slot>
 </x-app-layout>
